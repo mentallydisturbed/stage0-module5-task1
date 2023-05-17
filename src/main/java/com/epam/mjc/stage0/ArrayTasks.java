@@ -1,6 +1,5 @@
 package com.epam.mjc.stage0;
 
-import java.util.Arrays;
 
 /**
  * Here are the tasks for working with the arrays.
@@ -114,7 +113,15 @@ public class ArrayTasks {
     public int[][] sortRaggedArray(int[][] arr) {
         int mx = 0;
         for(int i = 0; i < arr.length; i++) {
-            Arrays.sort(arr[i]);
+            for(int j = 0; j < arr[i].length; j++) {
+                for(int k = j + 1; k < arr[i].length; k++) {
+                    if(arr[i][j] > arr[i][k]) {
+                        int tmp = arr[i][j];
+                        arr[i][j] = arr[i][k];
+                        arr[i][k] = tmp;
+                    }
+                }
+            }
             if (mx < arr[i].length) mx = arr[i].length;
         }
         int[][] ret = new int[arr.length][];
