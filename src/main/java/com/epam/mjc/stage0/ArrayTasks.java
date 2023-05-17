@@ -11,8 +11,8 @@ public class ArrayTasks {
      * Return a String[] array that will list all the seasons of the year, starting with winter.
      */
     public String[] seasonsArray() {
-        String[] seasons = new String[] {"Winter, Spring, Summer, Fall"};
-        return  seasons;
+        String[] seasons = new String[] {"winter, spring, summer, fall"};
+        return seasons;
     }
 
     /**
@@ -57,7 +57,7 @@ public class ArrayTasks {
      */
     public int findIndexOfNumber(int[] arr, int number) {
         int id = -1;
-        for(int i = 0; i < arr.length; i++) if(number == arr[i]) return i + 1;
+        for(int i = 0; i < arr.length; i++) if(number == arr[i]) return i;
         return id;
     }
 
