@@ -1,5 +1,7 @@
 package com.epam.mjc.stage0;
 
+import java.util.Arrays;
+
 /**
  * Here are the tasks for working with the arrays.
  * <p>
@@ -11,7 +13,7 @@ public class ArrayTasks {
      * Return a String[] array that will list all the seasons of the year, starting with winter.
      */
     public String[] seasonsArray() {
-        String[] seasons = new String[] {"winter, spring, summer, fall"};
+        String[] seasons = new String[] {"winter, spring, summer, autumn"};
         return seasons;
     }
 
@@ -110,6 +112,25 @@ public class ArrayTasks {
      * arr = [[5, 4], [7]]       -> [[7], [4, 5]]
      */
     public int[][] sortRaggedArray(int[][] arr) {
-        return new int[][] {};
+        int mx = 0;
+        for(int i = 0; i < arr.length; i++) {
+            Arrays.sort(arr[i]);
+            if (mx < arr[i].length) mx = arr[i].length;
+        }
+        int[][] ret = new int[arr.length][];
+        for(int i = 0; i < arr.length; i++) {
+            boolean found = false;
+            while(!found) {
+                for (int j = 0; j < arr.length; j++) {
+                    if (arr[j].length == mx) {
+                        ret[i] = arr[j];
+                        found = true;
+                        break;
+                    }
+                }
+                mx--;
+            }
+        }
+        return ret;
     }
 }
